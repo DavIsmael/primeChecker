@@ -1,10 +1,17 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 public class main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Choose number to verify if it's prime or not ");
-        int number = scanner.nextInt();
+        long number = 0;
         boolean isPrime;
+        try{
+            System.out.print("Choose number to verify if it's prime or not. It can check up to 9223372036854775807, otherwise, it'll just not work ");
+            number = scanner.nextLong();
+        }catch(InputMismatchException e){
+            System.out.println("Range of a long exceeded :o " + e);
+            System.exit(1);
+        }
         //1, 2, and 3 - 1 is not prime, but 2 and 3 are!
         //If number equals 2 or greater than 2, then it sets it to prime.
         if(number < 2) isPrime = false;
@@ -20,8 +27,8 @@ public class main {
         if(isPrime){
             System.out.println("The number " + number + " is prime!");
         }else if(number == 0){
-            System.out.println(number + " has infinite factors, but isnt a prime nor a composite number because it is not a natural number, it's just unique!");
-        }else if(number == 1){
+            System.out.println(number + " has infinite factors, but isnt a prime nor a composite number, it's just unique!");
+        }else if(number == 1) {
             System.out.println(number + " isnt prime nor is it a composite number because it only has 1 factor!");
         }else if(number < 0){
             System.out.println(number + " is a negative number and therefore it can't be a prime nor a composite number because it isn't a natural number!");
