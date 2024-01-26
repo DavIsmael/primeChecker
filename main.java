@@ -19,6 +19,8 @@ public class main {
         }
         if(isPrime){
             System.out.println("The number " + number + " is prime!");
+        }else if(number == 0){
+            System.out.println(number + " has infinite factors, but isnt a prime nor a composite number, it's just unique!")
         }else if(number == 1){
             System.out.println(number + " isnt prime nor is it a composite number because it only has 1 factor!");
         }else{
